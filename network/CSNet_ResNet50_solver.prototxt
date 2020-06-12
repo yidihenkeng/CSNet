@@ -1,0 +1,28 @@
+# the definition of neural network model
+net: "D:/likaiwen/network_LIVEMD/network3_4_1/CSNet_ResNet50.prototxt"
+# test_iter is related to batch_size in test layer, test_iter * batch_size = the number of test data
+#test_iter: 761
+# carry out test once every 5 training iterations
+#test_interval: 1000
+# exclude test phase when test_initialization = false
+# test_initialization: false
+# display information once every 10 training iterations
+display: 200
+# 
+average_loss: 40
+# the initial learning rate
+base_lr: 0.0001
+lr_policy: "poly"
+stepsize: 68000
+gamma: 0.96
+# The max number of iterations
+max_iter: 408000
+power: 1.0
+momentum: 0.9
+# weight decay item, in case of overfitting
+weight_decay: 0.0002
+# save once every 50 training iterations
+snapshot: 34000
+# save path
+snapshot_prefix: "D:/likaiwen/network_LIVEMD/network3_4_1/CSNet_ResNet50/sort_net"
+solver_mode: GPU
