@@ -1,15 +1,15 @@
 close all;
 clear;
 
-%¶ÁÈ¡Êý¾Ý¿âµÄÊý¾Ý
-%A=xlsread('D:\likaiwen\network\CSIQ_database\csiq.beta.xls');
-[num,txt,raw]=xlsread('D:\likaiwen\network\CSIQ_database\csiq.beta.xlsx','all_by_image');
-[num1,txt1,raw1]=xlsread('D:\likaiwen\network\CSIQ_database\csiq.beta.xlsx','all_by_distortion');
+%Â¶ÃÃˆÂ¡ÃŠÃ½Â¾ÃÂ¿Ã¢ÂµÃ„ÃŠÃ½Â¾Ã
+%A=xlsread('D:\123\network\CSIQ_database\csiq.beta.xls');
+[num,txt,raw]=xlsread('D:\123\network\CSIQ_database\csiq.beta.xlsx','all_by_image');
+[num1,txt1,raw1]=xlsread('D:\123\network\CSIQ_database\csiq.beta.xlsx','all_by_distortion');
 dmos =num1(:,9);
 std = num1(:,8);
 refname_number = [];
 num=0;
-dirsl=load('D:\likaiwen\network\name.mat');
+dirsl=load('D:\123\network\name.mat');
 dirsl=dirsl.dirsl;
 number = 0;
 ref = [];
@@ -41,7 +41,7 @@ for allnumber = 1:number
         else
             i=rem(i-1,5);
         end
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\awgn\' num2str(st) '.AWGN.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\awgn\' num2str(st) '.AWGN.' int2str(i)  '.png'];
     elseif i>=152&&i<=301
         st=raw1{i,3};
         if rem((i-1),5)==0
@@ -49,7 +49,7 @@ for allnumber = 1:number
         else
             i=rem(i-1,5);
         end
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\jpeg\' num2str(st) '.JPEG.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\jpeg\' num2str(st) '.JPEG.' int2str(i)  '.png'];
     elseif i>=302&&i<=451
         st=raw1{i,3};
         if rem((i-1),5)==0
@@ -57,7 +57,7 @@ for allnumber = 1:number
         else
             i=rem(i-1,5);
         end
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\jpeg2000\' num2str(st) '.jpeg2000.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\jpeg2000\' num2str(st) '.jpeg2000.' int2str(i)  '.png'];
     elseif i>=452&&i<=601
         st=raw1{i,3};
         if rem((i-1),5)==0
@@ -65,7 +65,7 @@ for allnumber = 1:number
         else
             i=rem(i-1,5);
         end
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\fnoise\' num2str(st) '.fnoise.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\fnoise\' num2str(st) '.fnoise.' int2str(i)  '.png'];
     elseif i>=602&&i<=751
         st=raw1{i,3};
         if rem((i-1),5)==0
@@ -73,7 +73,7 @@ for allnumber = 1:number
         else
             i=rem(i-1,5);
         end
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\blur\' num2str(st) '.BLUR.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\blur\' num2str(st) '.BLUR.' int2str(i)  '.png'];
     else
         st=raw1{i,3};
         s1 = dirsl{9};
@@ -94,7 +94,7 @@ for allnumber = 1:number
             end
         end  
         %%%%%
-        str1=['D:\likaiwen\network\CSIQ_database\distorted\contrast\' num2str(st) '.contrast.' int2str(i)  '.png'];
+        str1=['D:\123\network\CSIQ_database\distorted\contrast\' num2str(st) '.contrast.' int2str(i)  '.png'];
     end
     img1 = imread(str1);
     %img1 = rgb2gray(img1);
@@ -103,7 +103,7 @@ for allnumber = 1:number
     %img0(:,:,1) = img1;
     %img0 = uint8(img0);
     num=num+1;
-    imwrite(img1,strcat('D:\likaiwen\network_CSIQ\network3_4_12\ref3_img_test\',int2str(num),'_',num2str(dmos(a)),'.bmp'));
-    %imwrite(img1,strcat('D:\likaiwen\network_CSIQ\network3_4_12\ref3_img_train\',int2str(num),'_',num2str(dmos(a)),'_',num2str(std(a)),'.bmp'));
+    imwrite(img1,strcat('D:\123\network_CSIQ\network3_4_12\ref3_img_test\',int2str(num),'_',num2str(dmos(a)),'.bmp'));
+    %imwrite(img1,strcat('D:\123\network_CSIQ\network3_4_12\ref3_img_train\',int2str(num),'_',num2str(dmos(a)),'_',num2str(std(a)),'.bmp'));
 end
                         
