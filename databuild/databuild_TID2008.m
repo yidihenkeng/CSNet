@@ -1,6 +1,6 @@
 close all;
 clear;
-%[a]=textread('D:\likaiwen\network_TID2008\tid2008\mos_std.txt','%7s');
+%[a]=textread('D:\123\network_TID2008\tid2008\mos_std.txt','%7s');
 %std = [];
 %for i = 1:1700
    % s = a{i};
@@ -8,13 +8,13 @@ clear;
     %std = [std s];
 %end
 
-%读取数据库的数据
-A=load('D:\likaiwen\network_TID2008\mos.mat'); 
-mos=A.mos;%每幅图的DMOS
-B=load('D:\likaiwen\network_TID2008\std.mat'); 
-std=B.std;%每幅图的DMOS
-name=load('D:\likaiwen\network_TID2008\name.mat');
-name=name.image_name;%所有图像的名字
+%璇诲彇鏁版嵁搴撶殑鏁版嵁
+A=load('D:\123\network_TID2008\mos.mat'); 
+mos=A.mos;%姣忓箙鍥剧殑DMOS
+B=load('D:\123\network_TID2008\std.mat'); 
+std=B.std;%姣忓箙鍥剧殑DMOS
+name=load('D:\123\network_TID2008\name.mat');
+name=name.image_name;%鎵�鏈夊浘鍍忕殑鍚嶅瓧
 ref = [];
 num = 0;
 count = 0;
@@ -39,7 +39,7 @@ end
 for allnumber = 1:1040
     i = ref(allnumber);
     st1 = name{i};
-    str1=['D:\likaiwen\network_TID2008\tid2008\distorted_images\' num2str(st1)];
+    str1=['D:\123\network_TID2008\tid2008\distorted_images\' num2str(st1)];
     img1 = imread(str1);
     %img1 = rgb2gray(img1);
     %[hei,wid] = size(img1);
@@ -48,7 +48,7 @@ for allnumber = 1:1040
     %img0 = img1;
     %img0 = uint8(img0);
     num = num+1;
-    imwrite(img1,strcat('D:\likaiwen\network_TID2008\network3_4_13\ref3_img_test\',int2str(num),'_',num2str(mos(i)),'.bmp'));
-    %imwrite(img1,strcat('D:\likaiwen\network_TID2008\network3_4_12\ref3_img_train\',int2str(num),'_',num2str(mos(i)),'_',num2str(std(i)),'.bmp'));
+    imwrite(img1,strcat('D:\123\network_TID2008\network3_4_13\ref3_img_test\',int2str(num),'_',num2str(mos(i)),'.bmp'));
+    %imwrite(img1,strcat('D:\123\network_TID2008\network3_4_12\ref3_img_train\',int2str(num),'_',num2str(mos(i)),'_',num2str(std(i)),'.bmp'));
 end
                         
