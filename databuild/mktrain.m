@@ -10,20 +10,20 @@ num=0;
 
 fileExt = '*.bmp';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    files = dir(fullfile('D:\likaiwen\network_TID2013\network3_4_19\ref3_img_train\8\',fileExt));
+    files = dir(fullfile('D:\123\network_TID2013\network3_4_19\ref3_img_train\8\',fileExt));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 file_num = length(files);
 for i = 1:file_num  
     i
-    %¶ÁÈ¡Í¼ÏñÃû
+    %è¯»å–å›¾åƒå
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    fileName = strcat('D:\likaiwen\network_TID2013\network3_4_19\ref3_img_train\8\',files(i,1).name);
+    fileName = strcat('D:\123\network_TID2013\network3_4_19\ref3_img_train\8\',files(i,1).name);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     S=regexp(fileName,'\\','split');
     s=S(7);
-    %·Ö¸î³öÍ¼ÏñÃûÖĞ±àºÅºÍ±êÇ©
+    %åˆ†å‰²å‡ºå›¾åƒåä¸­ç¼–å·å’Œæ ‡ç­¾
     str1=regexp(s,'_','split');
     img_num=str1{1,1}(1);
     img_num=str2num(img_num{1});
@@ -68,7 +68,7 @@ chunksz=100;
 created_flag = true;
 startloc = struct('dat',[1,1,1,1], 'lab', [1,1]);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-file_path = 'D:\likaiwen\network_TID2013\network3_4_19\ref3_img_train\hdf5_100_14\';
+file_path = 'D:\123\network_TID2013\network3_4_19\ref3_img_train\hdf5_100_14\';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for k=1:num/chunksz
     k
