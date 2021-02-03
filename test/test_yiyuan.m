@@ -5,10 +5,10 @@ caffe.reset_all();
 caffe.set_mode_gpu();
 caffe.set_device(1);
 
-folder = 'D:\likaiwen\network_LIVEMD\network3_4_2\';
+folder = 'D:\123\network_LIVEMD\network3_4_2\';
 %model = [folder 'sort_net3_score_deploy_5conv_1.prototxt'];
 model = [folder 'deploy_2.prototxt'];
-mos = load('D:\likaiwen\network_LIVE\IVCMOS.mat');
+mos = load('D:\123\network_LIVE\IVCMOS.mat');
 mos = mos.mos;
 %%%%%%%%%%%%%%%%%%%%%%%%%%  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 weights = [folder 'sort_net3_5conv_7\sort_net_iter_34000.caffemodel'];
@@ -20,13 +20,13 @@ Y = 224;
 stride = 50;
 feature = [];
 label = [];
-patch_num = 0; %Í¼Ïñ¿é¸öÊı
-image_count = 0;%Í¼Ïñ¸öÊı
+patch_num = 0; %å›¾åƒå—ä¸ªæ•°
+image_count = 0;%å›¾åƒä¸ªæ•°
 
 
 fileExt = '*.bmp';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-files = dir(fullfile('D:\likaiwen\network_LIVEMD\network3_4_1\ref3_img_test\',fileExt));
+files = dir(fullfile('D:\123\network_LIVEMD\network3_4_1\ref3_img_test\',fileExt));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 file_num = length(files);
@@ -37,14 +37,14 @@ Label = [];
 img_flag1 = [];
 for i = 1:file_num
     
-    %¶ÁÈ¡Í¼ÏñÃû
+    %è¯»å–å›¾åƒå
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    fileName = strcat('D:\likaiwen\network_LIVEMD\network3_4_1\ref3_img_test\',files(i,1).name);
+    fileName = strcat('D:\123\network_LIVEMD\network3_4_1\ref3_img_test\',files(i,1).name);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     S=regexp(fileName,'\\','split');
     s=S(6);
-    %·Ö¸î³öÍ¼ÏñÃûÖĞ±àºÅºÍ±êÇ©
+    %åˆ†å‰²å‡ºå›¾åƒåä¸­ç¼–å·å’Œæ ‡ç­¾
     str1=regexp(s,'_','split');
     img_num=str1{1,1}(1);
     img_num=str2num(img_num{1});
@@ -65,7 +65,7 @@ for i = 1:file_num
                 img0(1:X,1:Y,3)=img(x : x+X-1, y : y+Y-1,3);
                 patch_num=patch_num+1;
                 img0 = img0/255;
-                patch_score = net.forward({img0});     %´ÓÍøÂçÖĞ»ñµÃÍ¼Ïñ¿éµÄ·ÖÊı
+                patch_score = net.forward({img0});     %ä»ç½‘ç»œä¸­è·å¾—å›¾åƒå—çš„åˆ†æ•°
                 I1 = patch_score{1,1}(1);
                 %I2 = patch_score{1,1}(2);
                 %I = (I1+I2)/2;
@@ -73,7 +73,7 @@ for i = 1:file_num
             end
         end
         Maxvalue = mean(patch_feature);
-        Feature = [Feature Maxvalue];     %Æ´½Ó¾ØÕó
+        Feature = [Feature Maxvalue];     %æ‹¼æ¥çŸ©é˜µ
         Label = [Label label1];
         image_count = image_count+1;
 end
