@@ -1,19 +1,19 @@
 close all;
 clear;
 
-%¶ÁÈ¡Êý¾Ý¿âµÄÊý¾Ý
-%A=load('D:\likaiwen\network\network3\LIVE\dmos.mat'); 
-%dmos=A.dmos;%Ã¿·ùÍ¼µÄDMOS
-%B=load('D:\likaiwen\network_LIVE\std_csiq.mat'); 
-%std=B.std;%Ã¿·ùÍ¼µÄDMOS
+%è¯»å–æ•°æ®åº“çš„æ•°æ®
+%A=load('D:\123\network\network3\LIVE\dmos.mat'); 
+%dmos=A.dmos;%æ¯å¹…å›¾çš„DMOS
+%B=load('D:\123\network_LIVE\std_csiq.mat'); 
+%std=B.std;%æ¯å¹…å›¾çš„DMOS
 %%%%%%%%%%%%%%%%%%%%
-B=load('D:\likaiwen\network\network3\LIVE\dmos_realigned.mat'); 
+B=load('D:\123\network\network3\LIVE\dmos_realigned.mat'); 
 dmos = B.dmos_new;
 std = B.dmos_std;
 %%%%%%%%%%%%%%%%%%%%
-name=load('D:\likaiwen\network\network3\LIVE\refnames_all.mat');
-refname=name.refnames_all;%ËùÓÐÍ¼ÏñµÄÃû×Ö
-dirs1=dir('D:\likaiwen\network\network3\LIVE\refimgs\*.bmp');%¶ÁÈ¡²Î¿¼Í¼µÄÐÅÏ¢
+name=load('D:\123\network\network3\LIVE\refnames_all.mat');
+refname=name.refnames_all;%æ‰€æœ‰å›¾åƒçš„åå­—
+dirs1=dir('D:\123\network\network3\LIVE\refimgs\*.bmp');%è¯»å–å‚è€ƒå›¾çš„ä¿¡æ¯
 
 num = 0;
 refname_number = [];
@@ -36,15 +36,15 @@ end
 for allnumber = 1:number
     i = ref(allnumber);
     if i>=1&&i<=227
-        str1=['D:\likaiwen\network\network3\LIVE\jp2k\' 'img' int2str(i)  '.bmp'];
+        str1=['D:\123\network\network3\LIVE\jp2k\' 'img' int2str(i)  '.bmp'];
     elseif i>=228&&i<=460
-        str1=['D:\likaiwen\network\network3\LIVE\jpeg\' 'img' int2str(i-227)  '.bmp'];
+        str1=['D:\123\network\network3\LIVE\jpeg\' 'img' int2str(i-227)  '.bmp'];
     elseif i>=461&&i<=634
-        str1=['D:\likaiwen\network\network3\LIVE\wn\' 'img' int2str(i-460)  '.bmp'];
+        str1=['D:\123\network\network3\LIVE\wn\' 'img' int2str(i-460)  '.bmp'];
     elseif i>=635&&i<=808
-        str1=['D:\likaiwen\network\network3\LIVE\gblur\' 'img' int2str(i-634)  '.bmp'];
+        str1=['D:\123\network\network3\LIVE\gblur\' 'img' int2str(i-634)  '.bmp'];
     else
-        str1= ['D:\likaiwen\network\network3\LIVE\fastfading\' 'img' int2str(i-808)  '.bmp'];
+        str1= ['D:\123\network\network3\LIVE\fastfading\' 'img' int2str(i-808)  '.bmp'];
     end
     img1 = imread(str1);
     %img1 = rgb2gray(img1);
@@ -55,7 +55,7 @@ for allnumber = 1:number
     %img0(:,:,3) = img1(:,:,3);
     %img0 = uint8(img0);
     num = num+1;
-    imwrite(img1,strcat('D:\likaiwen\network_LIVE\network3_4_10\ref3_img_test\',num2str(num),'_',num2str(dmos(i)),'.bmp')); 
-    %imwrite(img1,strcat('D:\likaiwen\network_LIVE\network3_4_11\ref3_img_train\',num2str(num),'_',num2str(dmos(i)),'_',num2str(std(i)),'.bmp'));
+    imwrite(img1,strcat('D:\123\network_LIVE\network3_4_10\ref3_img_test\',num2str(num),'_',num2str(dmos(i)),'.bmp')); 
+    %imwrite(img1,strcat('D:\123\network_LIVE\network3_4_11\ref3_img_train\',num2str(num),'_',num2str(dmos(i)),'_',num2str(std(i)),'.bmp'));
 end
                         
