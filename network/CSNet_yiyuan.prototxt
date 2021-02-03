@@ -9,7 +9,7 @@ layer {
   }
 
   hdf5_data_param {
-    source: "D:/likaiwen/network_LIVE/network3_4_3/train_2.txt"  #txt文件里保存多个hdf5文件的路径，一个hdf5文件路径占一行
+    source: "D:/123/network_LIVE/network3_4_3/train_2.txt"  #txt文件里保存多个hdf5文件的路径，一个hdf5文件路径占一行
     batch_size: 64
 
   }
