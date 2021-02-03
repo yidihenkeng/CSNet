@@ -1,5 +1,5 @@
 # the definition of neural network model
-net: "D:/likaiwen/network_LIVEMD/network3_4_1/CSNet_ResNet50.prototxt"
+net: "D:/123/network_LIVEMD/network3_4_1/CSNet_ResNet50.prototxt"
 # test_iter is related to batch_size in test layer, test_iter * batch_size = the number of test data
 #test_iter: 761
 # carry out test once every 5 training iterations
@@ -24,5 +24,5 @@ weight_decay: 0.0002
 # save once every 50 training iterations
 snapshot: 34000
 # save path
-snapshot_prefix: "D:/likaiwen/network_LIVEMD/network3_4_1/CSNet_ResNet50/sort_net"
+snapshot_prefix: "D:/123/network_LIVEMD/network3_4_1/CSNet_ResNet50/sort_net"
 solver_mode: GPU
