@@ -1,5 +1,5 @@
 # The train/test net protocol buffer definition
-net: "D:/likaiwen/network_LIVE/network3_4_3/CSNet_zhixin.prototxt"
+net: "D:/123/network_LIVE/network3_4_3/CSNet_zhixin.prototxt"
 #test_iter: 150
 #test_iter: 47
 # Carry out testing every 500 training iterations.
@@ -23,7 +23,7 @@ max_iter: 90000
 # snapshot intermediate results
 #snapshot: 50000
 snapshot: 5000
-snapshot_prefix: "D:/likaiwen/network_LIVE/network3_4_3/CSNet_zhixin/sort_net"
+snapshot_prefix: "D:/123/network_LIVE/network3_4_3/CSNet_zhixin/sort_net"
 # solver mode: CPU or GPU
 solver_mode: GPU
 
