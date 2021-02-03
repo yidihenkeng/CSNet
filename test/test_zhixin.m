@@ -5,7 +5,7 @@ caffe.reset_all();
 caffe.set_mode_gpu();
 caffe.set_device(1);
 
-folder = 'D:\likaiwen\network_LIVE\network3_4_kuaku\';
+folder = 'D:\123\network_LIVE\network3_4_kuaku\';
 model = [folder 'sort_net3_score_deploy_5conv_2.prototxt'];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -18,13 +18,13 @@ Y = 100;
 stride = 50;
 feature = [];
 label = [];
-patch_num = 0; %Í¼Ïñ¿é¸öÊı
-image_count = 0;%Í¼Ïñ¸öÊı
+patch_num = 0; %å›¾åƒå—ä¸ªæ•°
+image_count = 0;%å›¾åƒä¸ªæ•°
 
 
 fileExt = '*.bmp';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-files = dir(fullfile('D:\likaiwen\network_LIVE\network3_4_kuaku\ref3_img_test_CSIQ\',fileExt));
+files = dir(fullfile('D:\123\network_LIVE\network3_4_kuaku\ref3_img_test_CSIQ\',fileExt));
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 file_num = length(files);
@@ -45,14 +45,14 @@ Label = [];
 img_flag1 = [];
 for i = 1:file_num
     
-    %¶ÁÈ¡Í¼ÏñÃû
+    %è¯»å–å›¾åƒå
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    fileName = strcat('D:\likaiwen\network_LIVE\network3_4_kuaku\ref3_img_test_CSIQ\',files(i,1).name);
+    fileName = strcat('D:\123\network_LIVE\network3_4_kuaku\ref3_img_test_CSIQ\',files(i,1).name);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     S=regexp(fileName,'\\','split');
     s=S(6);
-    %·Ö¸î³öÍ¼ÏñÃûÖĞ±àºÅºÍ±êÇ©
+    %åˆ†å‰²å‡ºå›¾åƒåä¸­ç¼–å·å’Œæ ‡ç­¾
     str1=regexp(s,'_','split');
     img_num=str1{1,1}(1);
     img_num=str2num(img_num{1});
@@ -73,7 +73,7 @@ for i = 1:file_num
                 %img0(1:X,1:Y,3)=img(x : x+X-1, y : y+Y-1,3);
                 patch_num=patch_num+1;
                 img0 = img0/255;
-                patch_score = net.forward({img0});     %´ÓÍøÂçÖĞ»ñµÃÍ¼Ïñ¿éµÄ·ÖÊı
+                patch_score = net.forward({img0});     %ä»ç½‘ç»œä¸­è·å¾—å›¾åƒå—çš„åˆ†æ•°
                 I1 = patch_score{1,1}(1);
                 I2 = patch_score{1,1}(2);
                 I = (I1+I2)/2;
@@ -82,7 +82,7 @@ for i = 1:file_num
         end
         Maxvalue = mean(patch_feature);
         %Maxvalue = 90 - mean(patch_feature)*90;
-        Feature = [Feature Maxvalue];     %Æ´½Ó¾ØÕó
+        Feature = [Feature Maxvalue];     %æ‹¼æ¥çŸ©é˜µ
         Label = [Label label1];
         image_count = image_count+1;
 end
